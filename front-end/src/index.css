@@ -1,0 +1,37 @@
+
+/* Reset default margins & paddings for consistency */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+/* Set a base font and background */
+body {
+  
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;  /* ✅ Prevents horizontal scrolling */
+
+}
+
+/* Main container for layout */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;  /* Makes sure content covers full height */
+}
+
+/* Main content area */
+.main-content {
+  flex: 1;  /* Makes sure content expands and pushes footer down */
+  padding: 20px;
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}

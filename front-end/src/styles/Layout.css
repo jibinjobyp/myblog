@@ -1,0 +1,139 @@
+/* Layout.css */
+
+:root {
+  --primary-color: #4361ee;
+  --secondary-color: #3f37c9;
+  --light-bg: #f8f9fa;
+  --dark-bg: #2b2d42;
+  --text-light: #f8f9fa;
+  --text-dark: #212529;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--light-bg);
+}
+
+.layout {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+  background-color: white;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add a subtle decorative element */
+.layout::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .layout {
+      padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .layout {
+      padding: 1.25rem 0.75rem;
+  }
+}
+
+/* Animation for page transitions */
+.layout {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Content styling */
+.layout h1, .layout h2, .layout h3 {
+  color: var(--dark-bg);
+  margin-top: 0;
+}
+
+.layout a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+.layout a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+/* Form elements */
+.layout input,
+.layout textarea,
+.layout select {
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  padding: 0.75rem;
+  font-size: 1rem;
+  transition: var(--transition);
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+.layout input:focus,
+.layout textarea:focus,
+.layout select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+}
+
+/* Buttons */
+.layout button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.layout button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.layout button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}

@@ -1,0 +1,344 @@
+/* Navbar.module.css */
+
+:root {
+  --primary-color: #4361ee;
+  --secondary-color: #3f37c9;
+  --accent-color: #4cc9f0;
+  --text-color: #2b2d42;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: var(--transition);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.navbar.scrolled {
+  box-shadow: var(--shadow);
+  background-color: rgba(255, 255, 255, 0.98);
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 80px;
+}
+
+.logoLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin: 0;
+  color: var(--text-color);
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo span {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.navLink {
+  color: var(--text-color);
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.navLink:hover {
+  color: var(--primary-color);
+}
+
+.navLink::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: var(--transition);
+}
+
+.navLink:hover::before {
+  width: 100%;
+}
+
+.logoutBtn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: var(--transition);
+  box-shadow: 0 2px 4px rgba(67, 97, 238, 0.2);
+}
+
+.logoutBtn:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(67, 97, 238, 0.3);
+}
+
+.signupLink {
+  background: var(--primary-color);
+  color: white !important;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem !important;
+  transition: var(--transition);
+}
+
+.signupLink:hover {
+  background: var(--secondary-color);
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(67, 97, 238, 0.3);
+}
+
+.signupLink::before {
+  display: none;
+}
+
+/* Mobile menu button (hamburger) */
+.mobileMenuButton {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.75rem;
+  z-index: 1001;
+  position: relative;
+}
+
+.hamburger {
+  display: block;
+  position: relative;
+  width: 28px;
+  height: 2px;
+  background-color: var(--text-color);
+  transition: var(--transition);
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 2px;
+  background-color: var(--text-color);
+  transition: var(--transition);
+}
+
+.hamburger::before {
+  transform: translateY(-8px);
+}
+
+.hamburger::after {
+  transform: translateY(8px);
+}
+
+/* Active hamburger state */
+.hamburger.active {
+  background-color: transparent;
+}
+
+.hamburger.active::before {
+  transform: rotate(45deg);
+}
+
+.hamburger.active::after {
+  transform: rotate(-45deg);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navContainer {
+      padding: 0 1.5rem;
+  }
+  
+  .mobileMenuButton {
+      display: block;
+  }
+  
+  .navLinks {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      background-color: white;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      gap: 1.5rem;
+      align-items: flex-start;
+      height: calc(100vh - 80px);
+      z-index: 999;
+  }
+  
+  .navLink {
+      font-size: 1.2rem;
+      padding: 0.75rem 0;
+  }
+  
+  .navLink::before {
+      display: none;
+  }
+  
+  .logoutBtn, .signupLink {
+      width: 100%;
+      text-align: center;
+      padding: 0.8rem !important;
+  }
+  
+  /* Add a separator line between menu items */
+  .navLinks li {
+      width: 100%;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      padding-bottom: 1rem;
+  }
+  
+  .navLinks li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .logo {
+      font-size: 1.5rem;
+  }
+  
+  .navContainer {
+      padding: 0 1rem;
+      height: 70px;
+  }
+  
+  .navLinks {
+      top: 70px;
+      height: calc(100vh - 70px);
+  }
+}
+
+.profilePic {
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Should match width for a perfect circle */
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  border: 2px solid #fff; /* Optional: adds a white border */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.profilePic img{
+     width: 40px; /* Adjust size as needed */
+  height: 40px; /* Should match width for a perfect circle */
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  border: 2px solid #fff; /* Optional: adds a white border */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.profilePic:hover {
+  transform: scale(1.1); /* Slightly enlarges on hover */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds subtle shadow on hover */
+}
+
+
+
+/* Profile section styles */
+.profileItem {
+  position: relative;
+}
+
+.profileContainer {
+  position: relative;
+  cursor: pointer;
+}
+
+.profilePic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  transition: all 0.3s ease;
+}
+
+.profilePic:hover {
+  transform: scale(1.1);
+}
+
+/* Dropdown styles */
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  min-width: 150px;
+  z-index: 100;
+  margin-top: 10px;
+}
+
+.dropdownItem {
+  width: 100%;
+  padding: 8px 16px;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dropdownItem:hover {
+  background: #f5f5f5;
+  color: #000;
+}
