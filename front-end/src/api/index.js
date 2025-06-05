@@ -2,7 +2,8 @@ import axios from 'axios';
 
 // ✅ Create the axios instance
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:5000/api/',
+    // baseURL: 'http://localhost:5000/api/',
+    baseURL:'https://myblog-z2g1.onrender.com/api/', // Use your actual API URL
     withCredentials: true,  // For cookies, if using sessions
 });
 
