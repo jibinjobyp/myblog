@@ -3,7 +3,7 @@
 # POST PAGE
 ![image](Screenshot%202025-06-06%20013649.png)
 # SIGNUP PAGE
-![image](Screenshot%202025-06-06%20013649.png)
+![Screenshot 4](Screenshot%202025-06-06%20013757.png)
 # LOGIN PAGE
 ![Screenshot 5](Screenshot%202025-06-06%20013807.png) 
 # POST CREATE PAGE
