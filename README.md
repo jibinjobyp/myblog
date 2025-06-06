@@ -1,2 +1,2 @@
 # HOME PAGE
-![image](Screenshot 2025-06-06 013649.png)
+![image](Screenshot%202025-06-06%20013649.png)
