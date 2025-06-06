@@ -21,6 +21,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: "http://localhost:3000",
+
     methods: ["GET", "POST"],
   },
 });
@@ -31,6 +32,7 @@ registerSocketHandlers(io);
 // ✅ Setup CORS
 const corsOptions = {
   origin: "http://localhost:3000",
+  origin: "https://myblog4n6.onrender.com",
   methods: "GET,POST,PUT,DELETE",
   allowedHeaders: "Content-Type,Authorization",
   credentials: true,
